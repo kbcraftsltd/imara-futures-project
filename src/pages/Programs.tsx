@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { motion } from "framer-motion";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
@@ -91,6 +92,12 @@ const programs = [
 const categories = ["All", "Career Guidance", "Personal Development", "International", "Experiential Learning", "Engagement", "Special Programs", "Online Support"];
 
 const Programs = () => {
+  const [activeCategory, setActiveCategory] = useState("All");
+
+  const filteredPrograms = activeCategory === "All"
+    ? programs
+    : programs.filter((program) => program.category === activeCategory);
+
   return (
     <div className="min-h-screen bg-background">
       <Navbar />
@@ -144,8 +151,9 @@ const Programs = () => {
             {categories.map((category) => (
               <button
                 key={category}
+                onClick={() => setActiveCategory(category)}
                 className={`px-5 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
-                  category === "All"
+                  activeCategory === category
                     ? "bg-navy text-primary-foreground"
                     : "bg-muted text-muted-foreground hover:bg-navy/10 hover:text-navy"
                 }`}
@@ -157,7 +165,7 @@ const Programs = () => {
 
           {/* Programs Table/Cards */}
           <div className="grid gap-6">
-            {programs.map((program, index) => (
+            {filteredPrograms.map((program, index) => (
               <motion.div
                 key={program.name}
                 initial={{ opacity: 0, y: 20 }}
