@@ -13,6 +13,20 @@ import {
   ArrowRight,
 } from "lucide-react";
 
+import portfolio1 from "@/assets/portfolio-1.jpg";
+import portfolio2 from "@/assets/portfolio-2.jpg";
+import portfolio3 from "@/assets/portfolio-3.jpg";
+import portfolio4 from "@/assets/portfolio-4.jpg";
+import portfolio5 from "@/assets/portfolio-5.jpg";
+
+const portfolioImages = [
+  { src: portfolio1, alt: "Student workshop session" },
+  { src: portfolio2, alt: "Educational seminar" },
+  { src: portfolio3, alt: "Social impact tour" },
+  { src: portfolio4, alt: "Student engagement program" },
+  { src: portfolio5, alt: "Community awareness walk" },
+];
+
 const values = [
   {
     icon: Target,
@@ -268,6 +282,86 @@ const About = () => {
                 </Link>
               </Button>
             </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* Portfolio Section */}
+      <section className="py-24 bg-background">
+        <div className="container mx-auto px-4 lg:px-8">
+          <div className="text-center mb-16">
+            <motion.span
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+              className="text-teal font-medium text-sm uppercase tracking-wider"
+            >
+              Our Work
+            </motion.span>
+            <motion.h2
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.1 }}
+              className="font-heading text-3xl md:text-4xl lg:text-5xl font-bold text-foreground mt-4"
+            >
+              Portfolio <span className="text-navy">Gallery</span>
+            </motion.h2>
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.2 }}
+              className="text-muted-foreground max-w-2xl mx-auto mt-4"
+            >
+              A glimpse into our impactful programs and community engagement activities.
+            </motion.p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {portfolioImages.slice(0, 3).map((image, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.1 }}
+                className="group relative overflow-hidden rounded-2xl aspect-[4/3] shadow-soft hover:shadow-medium transition-all duration-500"
+              >
+                <img
+                  src={image.src}
+                  alt={image.alt}
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-navy/80 via-navy/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                <div className="absolute bottom-0 left-0 right-0 p-6 translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+                  <p className="text-primary-foreground font-medium">{image.alt}</p>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
+            {portfolioImages.slice(3).map((image, index) => (
+              <motion.div
+                key={index + 3}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: (index + 3) * 0.1 }}
+                className="group relative overflow-hidden rounded-2xl aspect-[16/9] shadow-soft hover:shadow-medium transition-all duration-500"
+              >
+                <img
+                  src={image.src}
+                  alt={image.alt}
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-navy/80 via-navy/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                <div className="absolute bottom-0 left-0 right-0 p-6 translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+                  <p className="text-primary-foreground font-medium">{image.alt}</p>
+                </div>
+              </motion.div>
+            ))}
           </div>
         </div>
       </section>
