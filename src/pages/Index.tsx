@@ -5,7 +5,18 @@ import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { ServiceCard } from "@/components/ServiceCard";
 import { ProcessStep } from "@/components/ProcessStep";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+} from "@/components/ui/carousel";
+import Autoplay from "embla-carousel-autoplay";
 import heroImage from "@/assets/hero-students.jpg";
+import portfolio1 from "@/assets/portfolio-1.jpg";
+import portfolio2 from "@/assets/portfolio-2.jpg";
+import portfolio3 from "@/assets/portfolio-3.jpg";
+import portfolio4 from "@/assets/portfolio-4.jpg";
+import portfolio5 from "@/assets/portfolio-5.jpg";
 import {
   Compass,
   Sprout,
@@ -20,6 +31,14 @@ import {
   HeartHandshake,
   ArrowRight,
 } from "lucide-react";
+
+const portfolioImages = [
+  { src: portfolio1, alt: "Imara Education event 1" },
+  { src: portfolio2, alt: "Imara Education event 2" },
+  { src: portfolio3, alt: "Imara Education event 3" },
+  { src: portfolio4, alt: "Imara Education event 4" },
+  { src: portfolio5, alt: "Imara Education event 5" },
+];
 
 const services = [
   {
@@ -226,6 +245,66 @@ const Index = () => {
               </Button>
             </motion.div>
           </div>
+        </div>
+
+        {/* Portfolio Carousel */}
+        <div className="mt-20">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center mb-8"
+          >
+            <h3 className="font-heading text-2xl md:text-3xl font-bold text-foreground">
+              Our <span className="text-navy">Impact</span> in Action
+            </h3>
+          </motion.div>
+          <Carousel
+            opts={{
+              align: "start",
+              loop: true,
+            }}
+            plugins={[
+              Autoplay({
+                delay: 3000,
+                stopOnInteraction: false,
+              }),
+            ]}
+            className="w-full max-w-6xl mx-auto"
+          >
+            <CarouselContent className="-ml-2 md:-ml-4">
+              {portfolioImages.map((image, index) => (
+                <CarouselItem key={index} className="pl-2 md:pl-4 basis-1/2 md:basis-1/3 lg:basis-1/4">
+                  <motion.div
+                    initial={{ opacity: 0, scale: 0.9 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: index * 0.1 }}
+                    className="overflow-hidden rounded-xl aspect-[4/3]"
+                  >
+                    <img
+                      src={image.src}
+                      alt={image.alt}
+                      className="w-full h-full object-cover hover:scale-110 transition-transform duration-500"
+                    />
+                  </motion.div>
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+          </Carousel>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="text-center mt-8"
+          >
+            <Button variant="outline" size="lg" asChild>
+              <Link to="/about">
+                View More
+                <ArrowRight className="ml-2 w-4 h-4" />
+              </Link>
+            </Button>
+          </motion.div>
         </div>
       </section>
 
