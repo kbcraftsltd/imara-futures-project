@@ -6,6 +6,11 @@ import { Footer } from "@/components/Footer";
 import { ServiceCard } from "@/components/ServiceCard";
 import { ProcessStep } from "@/components/ProcessStep";
 import heroImage from "@/assets/hero-students.jpg";
+import portfolio1 from "@/assets/portfolio-1.jpg";
+import portfolio2 from "@/assets/portfolio-2.jpg";
+import portfolio3 from "@/assets/portfolio-3.jpg";
+import portfolio4 from "@/assets/portfolio-4.jpg";
+import portfolio5 from "@/assets/portfolio-5.jpg";
 import {
   Compass,
   Sprout,
@@ -20,6 +25,14 @@ import {
   HeartHandshake,
   ArrowRight,
 } from "lucide-react";
+
+const portfolioImages = [
+  { src: portfolio1, alt: "Student workshop session" },
+  { src: portfolio2, alt: "Educational seminar" },
+  { src: portfolio3, alt: "Social impact tour" },
+  { src: portfolio4, alt: "Student engagement program" },
+  { src: portfolio5, alt: "Community awareness walk" },
+];
 
 const services = [
   {
@@ -226,6 +239,63 @@ const Index = () => {
               </Button>
             </motion.div>
           </div>
+        </div>
+      </section>
+
+      {/* Portfolio Carousel */}
+      <section className="py-16 bg-cream overflow-hidden">
+        <div className="container mx-auto px-4 lg:px-8 mb-8">
+          <div className="text-center">
+            <motion.span
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+              className="text-teal font-medium text-sm uppercase tracking-wider"
+            >
+              Our Impact
+            </motion.span>
+            <motion.h3
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.1 }}
+              className="font-heading text-2xl md:text-3xl font-bold text-foreground mt-4"
+            >
+              See Us in <span className="text-navy">Action</span>
+            </motion.h3>
+          </div>
+        </div>
+        
+        {/* Infinite scroll container */}
+        <div className="relative">
+          <motion.div
+            className="flex gap-6"
+            animate={{
+              x: [0, -1920],
+            }}
+            transition={{
+              x: {
+                repeat: Infinity,
+                repeatType: "loop",
+                duration: 30,
+                ease: "linear",
+              },
+            }}
+          >
+            {/* Double the images for seamless loop */}
+            {[...portfolioImages, ...portfolioImages, ...portfolioImages].map((image, index) => (
+              <div
+                key={index}
+                className="flex-shrink-0 w-80 h-56 rounded-xl overflow-hidden shadow-soft"
+              >
+                <img
+                  src={image.src}
+                  alt={image.alt}
+                  className="w-full h-full object-cover hover:scale-110 transition-transform duration-500"
+                />
+              </div>
+            ))}
+          </motion.div>
         </div>
       </section>
 
