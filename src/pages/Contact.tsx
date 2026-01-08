@@ -15,6 +15,7 @@ import {
   Twitter,
   Send,
   Building2,
+  MessageCircle,
 } from "lucide-react";
 
 const Contact = () => {
@@ -210,6 +211,23 @@ const Contact = () => {
                       className="text-muted-foreground hover:text-navy transition-colors"
                     >
                       +(254) 70665-4688
+                    </a>
+                  </div>
+                </div>
+
+                <div className="flex items-start gap-4">
+                  <div className="w-12 h-12 rounded-xl bg-green-500/10 flex items-center justify-center flex-shrink-0">
+                    <MessageCircle className="w-6 h-6 text-green-600" />
+                  </div>
+                  <div>
+                    <h3 className="font-semibold text-foreground mb-1">WhatsApp</h3>
+                    <a
+                      href="https://wa.me/254706654688"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-muted-foreground hover:text-green-600 transition-colors"
+                    >
+                      Chat with us
                     </a>
                   </div>
                 </div>
