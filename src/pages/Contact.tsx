@@ -191,10 +191,10 @@ const Contact = () => {
                   <div>
                     <h3 className="font-semibold text-foreground mb-1">Email Us</h3>
                     <a
-                      href="mailto:info@imaraeducation.com"
+                      href="mailto:muguresylviah@gmail.com"
                       className="text-muted-foreground hover:text-navy transition-colors"
                     >
-                      info@imaraeducation.com
+                      muguresylviah@gmail.com
                     </a>
                   </div>
                 </div>
@@ -206,10 +206,10 @@ const Contact = () => {
                   <div>
                     <h3 className="font-semibold text-foreground mb-1">Call Us</h3>
                     <a
-                      href="tel:+1234567890"
+                      href="tel:0706654688"
                       className="text-muted-foreground hover:text-navy transition-colors"
                     >
-                      +1 (234) 567-890
+                      +(254) 70665-4688
                     </a>
                   </div>
                 </div>

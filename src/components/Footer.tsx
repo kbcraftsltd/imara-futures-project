@@ -104,19 +104,19 @@ export const Footer = () => {
               <li className="flex items-start gap-3">
                 <Mail size={18} className="text-gold mt-0.5 flex-shrink-0" />
                 <a
-                  href="mailto:info@imaraeducation.com"
+                  href="mailto:muguresylviah@gmail.com"
                   className="text-primary-foreground/70 hover:text-gold transition-colors duration-300 text-sm"
                 >
-                  info@imaraeducation.com
+                  muguresylviah@gmail.com
                 </a>
               </li>
               <li className="flex items-start gap-3">
                 <Phone size={18} className="text-gold mt-0.5 flex-shrink-0" />
                 <a
-                  href="tel:+1234567890"
+                  href="tel:0706654688"
                   className="text-primary-foreground/70 hover:text-gold transition-colors duration-300 text-sm"
                 >
-                  +1 (234) 567-890
+                  +(254) 70665-4688
                 </a>
               </li>
               <li className="flex items-start gap-3">
