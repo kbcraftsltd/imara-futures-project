@@ -206,10 +206,10 @@ const Contact = () => {
                   <div>
                     <h3 className="font-semibold text-foreground mb-1">Call Us</h3>
                     <a
-                      href="tel:0706654688"
+                      href="tel:+1234567890"
                       className="text-muted-foreground hover:text-navy transition-colors"
                     >
-                      +(254) 70665-4688
+                      +1 (234) 567-890
                     </a>
                   </div>
                 </div>
