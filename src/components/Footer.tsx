@@ -122,7 +122,7 @@ export const Footer = () => {
               <li className="flex items-start gap-3">
                 <MapPin size={18} className="text-gold mt-0.5 flex-shrink-0" />
                 <span className="text-primary-foreground/70 text-sm">
-                  Global Offices • Virtual & In-Person
+                  Nairobi, Kenya
                 </span>
               </li>
             </ul>
