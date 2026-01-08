@@ -20,7 +20,6 @@ import {
 
 const Contact = () => {
   const { toast } = useToast();
-  const [isSubmitting, setIsSubmitting] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -28,20 +27,20 @@ const Contact = () => {
     message: "",
   });
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    setIsSubmitting(true);
-
-    // Simulate form submission
-    await new Promise((resolve) => setTimeout(resolve, 1000));
-
+    
+    const subject = encodeURIComponent(`Contact from ${formData.name}${formData.organization ? ` - ${formData.organization}` : ''}`);
+    const body = encodeURIComponent(
+      `Name: ${formData.name}\nEmail: ${formData.email}\nOrganization: ${formData.organization || 'N/A'}\n\nMessage:\n${formData.message}`
+    );
+    
+    window.location.href = `mailto:muguresylviah@gmail.com?subject=${subject}&body=${body}`;
+    
     toast({
-      title: "Message Sent!",
-      description: "Thank you for reaching out. We'll get back to you within 24 hours.",
+      title: "Opening Email Client",
+      description: "Your default email app will open with the message pre-filled.",
     });
-
-    setFormData({ name: "", email: "", organization: "", message: "" });
-    setIsSubmitting(false);
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -161,15 +160,9 @@ const Contact = () => {
                     rows={6}
                   />
                 </div>
-                <Button variant="default" size="lg" type="submit" disabled={isSubmitting}>
-                  {isSubmitting ? (
-                    "Sending..."
-                  ) : (
-                    <>
-                      Send Message
-                      <Send className="ml-2 w-4 h-4" />
-                    </>
-                  )}
+                <Button variant="default" size="lg" type="submit">
+                  Send Message
+                  <Send className="ml-2 w-4 h-4" />
                 </Button>
               </form>
             </motion.div>
