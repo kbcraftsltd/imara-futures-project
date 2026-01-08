@@ -221,7 +221,7 @@ const Contact = () => {
                   <div>
                     <h3 className="font-semibold text-foreground mb-1">Location</h3>
                     <p className="text-muted-foreground">
-                      Global Offices • Virtual & In-Person Services
+                      Nairobi, Kenya
                     </p>
                   </div>
                 </div>
