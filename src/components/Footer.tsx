@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { Mail, Phone, MapPin, Linkedin, Instagram, Twitter, MessageCircle } from "lucide-react";
+import headerLogo from "@/assets/header-logo.png";
 
 export const Footer = () => {
   return (
@@ -9,18 +10,12 @@ export const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
           {/* Brand Column */}
           <div className="lg:col-span-1">
-            <Link to="/" className="flex items-center gap-3 mb-6">
-              <div className="w-10 h-10 rounded-lg bg-gold flex items-center justify-center">
-                <span className="font-heading font-bold text-navy-dark text-xl">I</span>
-              </div>
-              <div className="flex flex-col">
-                <span className="font-heading font-bold text-xl tracking-wide">
-                  Imara
-                </span>
-                <span className="text-xs text-gold/90 -mt-1 tracking-wider">
-                  Education Services
-                </span>
-              </div>
+            <Link to="/" className="flex items-center mb-6">
+              <img 
+                src={headerLogo} 
+                alt="Imara Education Services" 
+                className="h-12 w-auto brightness-0 invert"
+              />
             </Link>
             <p className="text-primary-foreground/70 text-sm leading-relaxed mb-6">
               Empowering students and guiding futures through comprehensive school consulting and student development services.
