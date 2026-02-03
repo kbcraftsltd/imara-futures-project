@@ -16,7 +16,9 @@ import {
   Send,
   Building2,
   MessageCircle,
+  Briefcase,
 } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const Contact = () => {
   const { toast } = useToast();
@@ -263,6 +265,26 @@ const Contact = () => {
                   >
                     <Twitter size={20} />
                   </a>
+                </div>
+              </div>
+
+              {/* Portfolio Link */}
+              <div className="bg-navy rounded-2xl p-6">
+                <div className="flex items-start gap-4">
+                  <Briefcase className="w-6 h-6 text-gold flex-shrink-0 mt-1" />
+                  <div>
+                    <h3 className="font-semibold text-primary-foreground mb-2">
+                      View Our Portfolio
+                    </h3>
+                    <p className="text-primary-foreground/70 text-sm mb-4">
+                      Explore our past projects, success stories, and the impact we've made in schools across Kenya.
+                    </p>
+                    <Button variant="hero" size="sm" asChild>
+                      <Link to="/portfolio">
+                        View E-Portfolio
+                      </Link>
+                    </Button>
+                  </div>
                 </div>
               </div>
 
