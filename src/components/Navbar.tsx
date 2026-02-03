@@ -3,6 +3,7 @@ import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import headerLogo from "@/assets/header-logo.png";
 
 const navLinks = [
   { label: "Home", href: "/" },
@@ -41,18 +42,12 @@ export const Navbar = () => {
       <div className="container mx-auto px-4 lg:px-8">
         <nav className="flex items-center justify-between">
           {/* Logo */}
-          <Link to="/" className="flex items-center gap-3 group">
-            <div className="w-10 h-10 rounded-lg bg-gold flex items-center justify-center transform group-hover:scale-105 transition-transform duration-300">
-              <span className="font-heading font-bold text-navy-dark text-xl">I</span>
-            </div>
-            <div className="flex flex-col">
-              <span className="font-heading font-bold text-xl text-primary-foreground tracking-wide">
-                Imara
-              </span>
-              <span className="text-xs text-gold/90 -mt-1 tracking-wider">
-                Education Services
-              </span>
-            </div>
+          <Link to="/" className="flex items-center group">
+            <img 
+              src={headerLogo} 
+              alt="Imara Education Services - Empowering Students. Guiding Futures." 
+              className="h-10 md:h-12 w-auto transform group-hover:scale-105 transition-transform duration-300"
+            />
           </Link>
 
           {/* Desktop Navigation */}
